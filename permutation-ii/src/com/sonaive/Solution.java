@@ -11,11 +11,11 @@ public class Solution {
         // write your code here
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
         ArrayList<Integer> path = new ArrayList<Integer>();
-        boolean[] visited = new boolean[nums.size()];
-        Collections.sort(nums);
         if (nums == null || nums.size() == 0) {
             return result;
         }
+        boolean[] visited = new boolean[nums.size()];
+        Collections.sort(nums);
         dfs(nums, path, result, visited);
         return result;
     }
