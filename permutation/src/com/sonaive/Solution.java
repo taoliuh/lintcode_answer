@@ -18,7 +18,7 @@ public class Solution {
 
     private void dfs(ArrayList<Integer> source, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> result) {
         if (path.size() == source.size()) {
-            result.add(new ArrayList<Integer>(path));
+            result.add(new ArrayList<>(path));
             System.out.println("Result: " + result.toString());
         }
         for (int i = 0; i < source.size(); i++) {
