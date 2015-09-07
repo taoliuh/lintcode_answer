@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 /**
  * Created by liutao on 9/7/15.
  */
@@ -16,10 +14,7 @@ public class Test {
         right22.left = right321;
 
         Solution solution = new Solution();
-//        ArrayList<Integer> result = solution.preOrderTraversal(root);
-//        ArrayList<Integer> result = solution.preOrderTraversalNonRecursion(root);
-        ArrayList<Integer> result = solution.preOrderTraversalDividerAndConquer(root);
-        System.out.printf("Result is %s", result.toString());
+        int depth = solution.maxDepth(root);
+        System.out.printf("Max depth is %d", depth);
     }
-
 }
