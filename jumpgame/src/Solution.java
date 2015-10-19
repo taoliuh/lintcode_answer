@@ -22,18 +22,9 @@ public class Solution {
         }
         for (int i = 1; i < array.length; i++) {
             for (int j = 0; j < i; j++) {
-                if (result[j]) {
-                    if (j + array[j] > i) {
-                        result[i] = true;
-                        break;
-                    } else if (j + array[j] == i) {
-                        result[i] = array[i] > 0;
-                        if (result[i]) {
-                            break;
-                        }
-                    } else {
-                        result[i] = false;
-                    }
+                if (result[j] && j + array[j] >= i) {
+                    result[i] = true;
+                    break;
                 }
             }
         }
