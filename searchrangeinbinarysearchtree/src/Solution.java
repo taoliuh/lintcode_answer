@@ -12,6 +12,30 @@ import java.util.Stack;
  * Created by liutao on 9/15/15.
  */
 public class Solution {
+
+    public ArrayList<Integer> searchRangeNonRecursion(TreeNode root, int k1, int k2) {
+        // write your code here
+        ArrayList<Integer> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode p = root;
+        while (!stack.isEmpty() || p != null) {
+            if (p != null) {
+                stack.push(p);
+                p = p.left;
+            } else {
+                TreeNode t = stack.pop();
+                if (t.value >= k1 && t.value <= k2) {
+                    result.add(t.value);
+                }
+                p = t.right;
+            }
+        }
+        return result;
+    }
+
     public ArrayList<Integer> searchRange(TreeNode root, int k1, int k2) {
         ArrayList<Integer> result = new ArrayList<>();
         if (root == null) {
