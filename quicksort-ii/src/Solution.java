@@ -13,7 +13,7 @@ public class Solution {
             while (array[low] < pivot && low < high) {
                 ++low;
             }
-            while (array[high] > pivot && low < high) {
+            while (array[high] >= pivot && low < high) {
                 --high;
             }
             swap(array, low, high);
@@ -23,7 +23,7 @@ public class Solution {
         } else {
             ++low;
         }
-        quickSort(array, 0, low - 1);
+        quickSort(array, left, low - 1);
         quickSort(array, low + 1, right);
     }
 
