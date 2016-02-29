@@ -1,12 +1,10 @@
-import java.util.Iterator;
-
 /**
  * Created by liutao on 2/29/16.
  */
 public class Heap {
 
-    private static final int MIN_HEAP = 0;
-    private static final int MAX_HEAP = 1;
+    public static final int MIN_HEAP = 0;
+    public static final int MAX_HEAP = 1;
 
     private int[] mHeap;
 
@@ -20,8 +18,13 @@ public class Heap {
     }
 
     public Heap(int[] array) {
+        this(array, MAX_HEAP);
+    }
+
+    public Heap(int[] array, int heapType) {
         this.mHeap = array;
         this.mHeapSize = array.length;
+        this.mHeapType = heapType;
     }
 
     public void maxHeapify(int i) {
@@ -43,6 +46,25 @@ public class Heap {
         }
     }
 
+    public void minHeapify(int i) {
+        if (mHeap == null || mHeapSize == 0) {
+            return;
+        }
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int smallest = i;
+        if (left < mHeapSize && mHeap[left] < mHeap[smallest]) {
+            smallest = left;
+        }
+        if (right < mHeapSize && mHeap[right] < mHeap[smallest]) {
+            smallest = right;
+        }
+        if (smallest != i) {
+            swap(i, smallest);
+            minHeapify(smallest);
+        }
+    }
+
     private void swap(int i, int j) {
         if (mHeap == null || mHeapSize == 0) {
             return;
@@ -56,9 +78,13 @@ public class Heap {
         mHeap[j] = temp;
     }
 
-    public void buildMaxHeap() {
+    public void buildHeap() {
         for (int i = mHeapSize / 2; i >= 0; --i) {
-            maxHeapify(i);
+            if (mHeapType == MIN_HEAP) {
+                minHeapify(i);
+            } else {
+                maxHeapify(i);
+            }
         }
     }
 
@@ -66,21 +92,24 @@ public class Heap {
         if (mHeap == null || mHeapSize == 0) {
             return;
         }
-        buildMaxHeap();
+        buildHeap();
         for (int i = mHeapSize - 1; i > 0; --i) {
             swap(0, i);
             --mHeapSize;
-            maxHeapify(0);
+            if (mHeapType == MIN_HEAP) {
+                minHeapify(0);
+            } else {
+                maxHeapify(0);
+            }
         }
         mHeapSize = mHeap.length;
     }
 
     @Override
     public String toString() {
-
-        if (mHeap == null || mHeapSize == 0)
+        if (mHeap == null || mHeapSize == 0) {
             return "[]";
-
+        }
         StringBuilder sb = new StringBuilder();
         sb.append('[');
         for (int i : mHeap) {
