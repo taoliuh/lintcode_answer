@@ -6,11 +6,11 @@ public class Heap {
     public static final int MIN_HEAP = 0;
     public static final int MAX_HEAP = 1;
 
-    private int[] mHeap;
+    protected int[] mHeap;
 
-    private int mHeapSize = 0;
+    protected int mHeapSize = 0;
 
-    private int mHeapType = MAX_HEAP;
+    protected int mHeapType = MAX_HEAP;
 
     public Heap(int size) {
         this.mHeap = new int[size];
