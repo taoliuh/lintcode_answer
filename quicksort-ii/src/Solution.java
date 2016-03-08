@@ -18,7 +18,7 @@ public class Solution {
             }
             swap(array, low, high);
         }
-        if (array[low] > array[right]) {
+        if (array[low] >= array[right]) {
             swap(array, low, right);
         } else {
             ++low;
