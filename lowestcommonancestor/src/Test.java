@@ -6,10 +6,10 @@ public class Test {
         TreeNode root = new TreeNode(10);
         TreeNode left1= new TreeNode(5);
         TreeNode left21 = new TreeNode(4);
-        TreeNode left22 = new TreeNode(10);
+        TreeNode left22 = new TreeNode(6);
         TreeNode right1 = new TreeNode(2);
         TreeNode right21 = new TreeNode(3);
-        TreeNode right22 = new TreeNode(4);
+        TreeNode right22 = new TreeNode(7);
         TreeNode right321 = new TreeNode(1);
         root.right = right1;
         right1.left = right21;
@@ -19,7 +19,7 @@ public class Test {
         left1.left = left21;
         left1.right = left22;
         Solution solution = new Solution();
-        TreeNode treeNode = solution.lowestCommonAncestor(root, left21, left22);
+        TreeNode treeNode = solution.lowestCommonAncestor(root, left22, right321);
         System.out.printf("Lowest common ancestor is %d", treeNode.value);
     }
 }
