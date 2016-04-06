@@ -39,7 +39,7 @@ public class Solution {
             for (int i = 0; i < size; i++) {
                 TreeNode p = queue.poll();
                 if (p != null) {
-                    builder.append(p.value).append(',');
+                    builder.append(p.val).append(',');
                 } else {
                     builder.append("#,");
                 }
