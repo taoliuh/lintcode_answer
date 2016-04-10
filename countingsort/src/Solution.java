@@ -21,7 +21,7 @@ public class Solution {
         for (int i = 1; i < k; i++) {
             c[i] += c[i - 1];
         }
-        for (int i = 0; i < len; i++) {
+        for (int i = len - 1; i >= 0; i--) {
             b[c[a[i]] - 1] = a[i];
             c[a[i]] -= 1;
         }
